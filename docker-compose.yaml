@@ -8,7 +8,7 @@ services:
     container_name: etimen-app
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "3001:3000"
     environment:
       - DATABASE_URL=postgresql://etimen:etimen_secure_pass@db:5433/etimen
       - NEXTAUTH_URL=https://bsr41lqbdqxe9imp133h0isl.152.53.151.102.sslip.io
