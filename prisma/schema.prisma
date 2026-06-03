@@ -1,0 +1,426 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// AUTH MODELS
+// ============================================
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  role          UserRole  @default(USER)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts  Account[]
+  sessions  Session[]
+  favorites Favorite[]
+  cookingHistory CookingHistory[]
+  shoppingList ShoppingList[]
+  cookingNotes CookingNote[]
+
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+// ============================================
+// MEAT & COOKING MODELS
+// ============================================
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+model AnimalType {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  description String?  @db.Text
+  image       String?
+  icon        String?
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  cuts Cut[]
+
+  @@map("animal_types")
+}
+
+model Cut {
+  id                  String   @id @default(cuid())
+  animalTypeId        String
+  name                String
+  slug                String   @unique
+  description         String   @db.Text
+  locationDescription String   @db.Text
+  locationDiagram     String?
+  difficultyLevel     Difficulty @default(MEDIUM)
+  fatContent          FatContent @default(MEDIUM)
+  boneIn              Boolean    @default(false)
+  averageWeightMin    Float?
+  averageWeightMax    Float?
+  priceRange          String?
+  bestFor             String[]
+  image               String?
+  isActive            Boolean    @default(true)
+  createdAt           DateTime   @default(now())
+  updatedAt           DateTime   @updatedAt
+
+  animalType         AnimalType          @relation(fields: [animalTypeId], references: [id])
+  cookingGuides      CookingGuide[]
+  nutritionalInfo    NutritionalInfo?
+  storageInfo        StorageInfo?
+  pairingSuggestions PairingSuggestion[]
+  saucePairings      SaucePairing[]
+  favorites          Favorite[]
+  cookingHistory     CookingHistory[]
+  cookingNotes       CookingNote[]
+
+  @@map("cuts")
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+  EXPERT
+}
+
+enum FatContent {
+  LEAN
+  LOW
+  MEDIUM
+  HIGH
+  VERY_HIGH
+}
+
+// ============================================
+// COOKING MODELS
+// ============================================
+
+model CookingMethod {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  description String   @db.Text
+  icon        String?
+  tempRange   String?
+  difficulty  Difficulty @default(MEDIUM)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  cookingGuides  CookingGuide[]
+  saucePairings  SaucePairing[]
+  favorites      Favorite[]
+  cookingHistory CookingHistory[]
+
+  @@map("cooking_methods")
+}
+
+model CookingGuide {
+  id              String   @id @default(cuid())
+  cutId           String
+  cookingMethodId String
+  
+  preparationTime Int?
+  cookingTimeMin  Int
+  cookingTimeMax  Int
+  minutesPerKg    Float
+  
+  ovenTempMin     Int?
+  ovenTempMax     Int?
+  targetTempMin   Int
+  targetTempMax   Int
+  
+  instructions    Json
+  tips            String[]
+  commonMistakes  String[]
+  
+  stepImages      String[]
+  
+  difficulty      Difficulty @default(MEDIUM)
+  isActive        Boolean    @default(true)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  cut           Cut           @relation(fields: [cutId], references: [id], onDelete: Cascade)
+  cookingMethod CookingMethod @relation(fields: [cookingMethodId], references: [id])
+
+  @@unique([cutId, cookingMethodId])
+  @@map("cooking_guides")
+}
+
+// ============================================
+// DONENESS MODELS
+// ============================================
+
+model DonenessLevel {
+  id                 String   @id @default(cuid())
+  name               String   @unique
+  slug               String   @unique
+  tempMin            Int
+  tempMax            Int
+  description        String   @db.Text
+  colorDescription   String   @db.Text
+  textureDescription String   @db.Text
+  safetyNote         String?
+  image              String?
+  sortOrder          Int      @default(0)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@map("doneness_levels")
+}
+
+// ============================================
+// SAUCE MODELS
+// ============================================
+
+model Sauce {
+  id              String   @id @default(cuid())
+  name            String   @unique
+  slug            String   @unique
+  description     String   @db.Text
+  category        SauceCategory
+  ingredients     Json
+  preparationTime Int?
+  difficulty      Difficulty @default(EASY)
+  spiceLevel      Int      @default(0)
+  image           String?
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  pairings        SaucePairing[]
+  cookingHistory  CookingHistory[]
+
+  @@map("sauces")
+}
+
+enum SauceCategory {
+  BBQ
+  MARINADE
+  DRESSING
+  DIP
+  GLAZE
+  RUB
+  BRINE
+  OTHER
+}
+
+model SaucePairing {
+  id                 String @id @default(cuid())
+  cutId              String
+  sauceId            String
+  cookingMethodId    String?
+  compatibilityScore Int    @default(3)
+  notes              String?
+  isRecommended      Boolean @default(false)
+
+  cut           Cut            @relation(fields: [cutId], references: [id], onDelete: Cascade)
+  sauce         Sauce          @relation(fields: [sauceId], references: [id], onDelete: Cascade)
+  cookingMethod CookingMethod? @relation(fields: [cookingMethodId], references: [id])
+
+  @@unique([cutId, sauceId])
+  @@map("sauce_pairings")
+}
+
+// ============================================
+// NUTRITIONAL & STORAGE MODELS
+// ============================================
+
+model NutritionalInfo {
+  id            String @id @default(cuid())
+  cutId         String @unique
+  servingSize   Int    @default(100)
+  
+  calories      Int
+  protein       Float
+  totalFat      Float
+  saturatedFat  Float?
+  carbs         Float?
+  iron          Float?
+  zinc          Float?
+  vitaminB12    Float?
+  cholesterol   Int?
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  cut Cut @relation(fields: [cutId], references: [id], onDelete: Cascade)
+
+  @@map("nutritional_info")
+}
+
+model StorageInfo {
+  id              String @id @default(cuid())
+  cutId           String @unique
+  
+  fridgeDays      Int
+  fridgeTemp      String
+  freezerDays     Int
+  freezerTemp     String
+  thawingMethod   String @db.Text
+  signsOfSpoilage String[]
+  tips            String[]
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  cut Cut @relation(fields: [cutId], references: [id], onDelete: Cascade)
+
+  @@map("storage_info")
+}
+
+// ============================================
+// PAIRING MODELS
+// ============================================
+
+model PairingSuggestion {
+  id          String @id @default(cuid())
+  cutId       String
+  
+  sideDishes  Json
+  drinks      Json
+  wines       Json?
+  occasions   Json?
+  season      String?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  cut Cut @relation(fields: [cutId], references: [id], onDelete: Cascade)
+
+  @@map("pairing_suggestions")
+}
+
+// ============================================
+// USER INTERACTION MODELS
+// ============================================
+
+model Favorite {
+  id              String   @id @default(cuid())
+  userId          String
+  cutId           String
+  cookingMethodId String?
+  notes           String?
+  createdAt       DateTime @default(now())
+
+  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  cut           Cut           @relation(fields: [cutId], references: [id], onDelete: Cascade)
+  cookingMethod CookingMethod? @relation(fields: [cookingMethodId], references: [id])
+
+  @@unique([userId, cutId, cookingMethodId])
+  @@map("favorites")
+}
+
+model CookingHistory {
+  id              String   @id @default(cuid())
+  userId          String
+  cutId           String
+  cookingMethodId String
+  sauceId         String?
+  
+  weight          Float
+  cookingTime     Int?
+  finalTemp       Int?
+  doneness        String?
+  
+  rating          Int?
+  notes           String?  @db.Text
+  image           String?
+  
+  cookedAt        DateTime @default(now())
+  createdAt       DateTime @default(now())
+
+  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  cut           Cut           @relation(fields: [cutId], references: [id])
+  cookingMethod CookingMethod @relation(fields: [cookingMethodId], references: [id])
+  sauce         Sauce?        @relation(fields: [sauceId], references: [id])
+
+  @@map("cooking_history")
+}
+
+model ShoppingList {
+  id        String   @id @default(cuid())
+  userId    String
+  name      String
+  quantity  Float?
+  unit      String?
+  category  String?
+  isCompleted Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("shopping_list")
+}
+
+model CookingNote {
+  id        String   @id @default(cuid())
+  userId    String
+  cutId     String
+  title     String
+  content   String @db.Text
+  isPublic  Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  cut  Cut  @relation(fields: [cutId], references: [id], onDelete: Cascade)
+
+  @@map("cooking_notes")
+}
