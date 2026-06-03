@@ -1,0 +1,50 @@
+{
+  "$schema": "https://raw.githubusercontent.com/coollabsio/coolify/main/schema.json",
+  "name": "Etimen",
+  "description": "Et Pişirme Rehberi ve Hesaplama Aracı",
+  "services": {
+    "app": {
+      "name": "Etimen App",
+      "type": "nextjs",
+      "port": 3000,
+      "build": {
+        "type": "dockerfile",
+        "dockerfile": "Dockerfile"
+      },
+      "environment": {
+        "DATABASE_URL": "postgresql://etimen:etimen_secure_pass@db:5432/etimen",
+        "NEXTAUTH_URL": "https://bsr41lqbdqxe9imp133h0isl.152.53.151.102.sslip.io",
+        "NEXTAUTH_SECRET": "{{env('NEXTAUTH_SECRET')}}",
+        "NEXT_PUBLIC_APP_NAME": "Etimen",
+        "NEXT_PUBLIC_APP_URL": "https://bsr41lqbdqxe9imp133h0isl.152.53.151.102.sslip.io"
+      },
+      "depends_on": ["db"],
+      "healthcheck": {
+        "interval": 30,
+        "timeout": 10,
+        "retries": 3,
+        "command": "curl -f http://localhost:3000/api/health || exit 1"
+      }
+    },
+    "db": {
+      "name": "Etimen Database",
+      "type": "postgresql",
+      "image": "postgres:16-alpine",
+      "port": 5432,
+      "environment": {
+        "POSTGRES_DB": "etimen",
+        "POSTGRES_USER": "etimen",
+        "POSTGRES_PASSWORD": "{{env('DB_PASSWORD')}}"
+      },
+      "volumes": {
+        "postgres_data": "/var/lib/postgresql/data"
+      },
+      "healthcheck": {
+        "interval": 10,
+        "timeout": 5,
+        "retries": 5,
+        "command": "pg_isready -U etimen -d etimen"
+      }
+    }
+  }
+}
