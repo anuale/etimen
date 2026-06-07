@@ -27,7 +27,7 @@ const animalTypes = [
       { name: "Riploin (New York Strip)", slug: "dana-riploin", icon: "🥩", difficulty: "Kolay", bestMethods: ["Izgara", "Tava", "Fırın"] },
       { name: "T-Bone / Porterhouse", slug: "dana-t-bone", icon: "🥩", difficulty: "Orta", bestMethods: ["Izgara", "Tava"] },
       { name: "Brisket (Göğüs)", slug: "dana-brisket", icon: "🥩", difficulty: "Zor", bestMethods: ["Smoking", "Braising"] },
-      { name: "Short Ribs (Kaburga)", slug: "dana-short-ribs", icon: "🥩", difficulty: "Orta", bestMethods: ["Braising", "Smoking", "Izgara"] },
+      { name: "Short Ribs (Kaburga)", slug: "dana-short-ribs", icon: "🥩", difficulty: "Orta", bestMethods: ["Bracing", "Smoking", "Izgara"] },
       { name: "Chuck Roast (Kol)", slug: "dana-chuck", icon: "🥩", difficulty: "Orta", bestMethods: ["Bracing", "Smoking", "Fırın"] },
       { name: "Flank Steak (Karın)", slug: "dana-flank", icon: "🥩", difficulty: "Orta", bestMethods: ["Izgara", "Tava"] },
       { name: "Sirloin (Kontrfile)", slug: "dana-sirloin", icon: "🥩", difficulty: "Kolay", bestMethods: ["Izgara", "Tava", "Fırın"] },
@@ -43,7 +43,7 @@ const animalTypes = [
     cutCount: 6,
     cuts: [
       { name: "Kuzu Pirzola (Lamb Chops)", slug: "kuzu-pirzola", icon: "🍖", difficulty: "Orta", bestMethods: ["Izgara", "Tava"] },
-      { name: "Kuzu Kol (Lamb Shoulder)", slug: "kuzu-kol", icon: "🍖", difficulty: "Zor", bestMethods: ["Braising", "Smoking", "Fırın"] },
+      { name: "Kuzu Kol (Lamb Shoulder)", slug: "kuzu-kol", icon: "🍖", difficulty: "Zor", bestMethods: ["Bracing", "Smoking", "Fırın"] },
       { name: "Kuzu But (Leg of Lamb)", slug: "kuzu-but", icon: "🍖", difficulty: "Orta", bestMethods: ["Fırın", "Izgara", "Bracing"] },
       { name: "Kuzu Kaburga (Lamb Ribs)", slug: "kuzu-kaburga", icon: "🍖", difficulty: "Orta", bestMethods: ["Izgara", "Bracing"] },
       { name: "Kuzu İncik (Lamb Shank)", slug: "kuzu-incik", icon: "🍖", difficulty: "Zor", bestMethods: ["Bracing", "Fırın"] },
