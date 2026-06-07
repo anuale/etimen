@@ -90,8 +90,14 @@ const animalTypes = [
   }
 ];
 
-export default function AnimalTypeDetail({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export function generateStaticParams() {
+  return animalTypes.map((animal) => ({
+    slug: animal.slug,
+  }));
+}
+
+export default async function AnimalTypeDetail({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const animal = animalTypes.find(a => a.slug === slug);
   
   if (!animal) {
