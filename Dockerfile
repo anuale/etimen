@@ -2,7 +2,7 @@ FROM node:20-alpine AS base
 
 # Install dependencies only when needed
 FROM base AS deps
-RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache libc6-compat wget
 WORKDIR /app
 
 COPY package.json package-lock.json ./
@@ -38,6 +38,10 @@ RUN chown -R nextjs:nodejs /app/.next
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+# Copy Prisma client binaries
+COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
+COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
+
 USER nextjs
 
 EXPOSE 3000
@@ -45,4 +49,5 @@ EXPOSE 3000
 ENV PORT 3000
 ENV HOSTNAME "0.0.0.0"
 
-CMD ["node", "server.js"]
+# Warmup script - app'i başlat, Prisma'yı initialize et, sonra canlı tut
+CMD ["sh", "-c", "node server.js & WARMUP_PID=$!; sleep 8; wget -q -O- http://localhost:3000/api/health > /dev/null 2>&1; wget -q -O- http://localhost:3000/ > /dev/null 2>&1; wait $WARMUP_PID"]

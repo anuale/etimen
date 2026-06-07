@@ -13,11 +13,27 @@ services:
       - NEXTAUTH_SECRET=etimen-super-secret-key-change-in-production
       - NEXT_PUBLIC_APP_NAME=Etimen
       - NEXT_PUBLIC_APP_URL=https://bsr41lqbdqxe9imp133h0isl.152.53.151.102.sslip.io
+      - NODE_OPTIONS=--max-old-space-size=512
     depends_on:
       db:
         condition: service_healthy
     networks:
       - etimen-network
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 768M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+    stop_grace_period: 30s
 
   db:
     image: postgres:16-alpine
@@ -36,6 +52,15 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.1'
+          memory: 128M
     networks:
       - etimen-network
 
