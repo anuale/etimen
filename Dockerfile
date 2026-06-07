@@ -25,6 +25,8 @@ FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
+ENV PORT 3000
+ENV HOSTNAME "0.0.0.0"
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
@@ -46,8 +48,4 @@ USER nextjs
 
 EXPOSE 3000
 
-ENV PORT 3000
-ENV HOSTNAME "0.0.0.0"
-
-# Warmup script - app'i başlat, Prisma'yı initialize et, sonra canlı tut
-CMD ["sh", "-c", "node server.js & WARMUP_PID=$!; sleep 8; wget -q -O- http://localhost:3000/api/health > /dev/null 2>&1; wget -q -O- http://localhost:3000/ > /dev/null 2>&1; wait $WARMUP_PID"]
+CMD ["node", "server.js"]
