@@ -8,7 +8,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
   Beef, 
   Drumstick, 
-  Knife, 
   Flame, 
   Utensils,
   ArrowRight
@@ -23,17 +22,17 @@ const animalTypes = [
     description: "Sığır eti, en çok tüketilen kırmızı et türü. Farklı kesim yöntemleriyle çok çeşitli pişirme yöntemlerine uygundur.",
     cutCount: 12,
     cuts: [
-      { name: "Bonfile (Tenderloin)", slug: "dana-bonfile", icon: "🥩", difficulty: "Orta", bestFor: ["Tava", "Izgara", "Fırın", "Sous Vide"] },
-      { name: "Antrikot (Ribeye)", slug: "dana-antrikot", icon: "🥩", difficulty: "Kolay", bestFor: ["Izgara", "Tava", "Fırın"] },
-      { name: "Riploin (New York Strip)", slug: "dana-riploin", icon: "🥩", difficulty: "Kolay", bestFor: ["Izgara", "Tava", "Fırın"] },
-      { name: "T-Bone / Porterhouse", slug: "dana-t-bone", icon: "🥩", difficulty: "Orta", bestFor: ["Izgara", "Tava"] },
-      { name: "Brisket (Göğüs)", slug: "dana-brisket", icon: "🥩", difficulty: "Zor", bestFor: ["Smoking", "Braising"] },
-      { name: "Short Ribs (Kaburga)", slug: "dana-short-ribs", icon: "🥩", difficulty: "Orta", bestFor: ["Braising", "Smoking", "Izgara"] },
-      { name: "Chuck Roast (Kol)", slug: "dana-chuck", icon: "🥩", difficulty: "Orta", bestFor: ["Braising", "Smoking", "Fırın"] },
-      { name: "Flank Steak (Karın)", slug: "dana-flank", icon: "🥩", difficulty: "Orta", bestFor: ["Izgara", "Tava"] },
-      { name: "Sirloin (Kontrfile)", slug: "dana-sirloin", icon: "🥩", difficulty: "Kolay", bestFor: ["Izgara", "Tava", "Fırın"] },
-      { name: "Tri-Tip (Üçgen)", slug: "dana-tritip", icon: "🥩", difficulty: "Orta", bestFor: ["Izgara", "Smoking"] },
-      { name: "Kıyma (Ground Beef)", slug: "dana-kıyma", icon: "🥩", difficulty: "Kolay", bestFor: ["Tava", "Izgara", "Fırın"] }
+      { name: "Bonfile (Tenderloin)", slug: "dana-bonfile", icon: "🥩", difficulty: "Orta", bestMethods: ["Tava", "Izgara", "Fırın", "Sous Vide"] },
+      { name: "Antrikot (Ribeye)", slug: "dana-antrikot", icon: "🥩", difficulty: "Kolay", bestMethods: ["Izgara", "Tava", "Fırın"] },
+      { name: "Riploin (New York Strip)", slug: "dana-riploin", icon: "🥩", difficulty: "Kolay", bestMethods: ["Izgara", "Tava", "Fırın"] },
+      { name: "T-Bone / Porterhouse", slug: "dana-t-bone", icon: "🥩", difficulty: "Orta", bestMethods: ["Izgara", "Tava"] },
+      { name: "Brisket (Göğüs)", slug: "dana-brisket", icon: "🥩", difficulty: "Zor", bestMethods: ["Smoking", "Braising"] },
+      { name: "Short Ribs (Kaburga)", slug: "dana-short-ribs", icon: "🥩", difficulty: "Orta", bestMethods: ["Braising", "Smoking", "Izgara"] },
+      { name: "Chuck Roast (Kol)", slug: "dana-chuck", icon: "🥩", difficulty: "Orta", bestMethods: ["Bracing", "Smoking", "Fırın"] },
+      { name: "Flank Steak (Karın)", slug: "dana-flank", icon: "🥩", difficulty: "Orta", bestMethods: ["Izgara", "Tava"] },
+      { name: "Sirloin (Kontrfile)", slug: "dana-sirloin", icon: "🥩", difficulty: "Kolay", bestMethods: ["Izgara", "Tava", "Fırın"] },
+      { name: "Tri-Tip (Üçgen)", slug: "dana-tritip", icon: "🥩", difficulty: "Orta", bestMethods: ["Izgara", "Smoking"] },
+      { name: "Kıyma (Ground Beef)", slug: "dana-kıyma", icon: "🥩", difficulty: "Kolay", bestMethods: ["Tava", "Izgara", "Fırın"] }
     ]
   },
   {
@@ -43,12 +42,12 @@ const animalTypes = [
     description: "Kuzu eti, yağlı ve sulu yapısıyla bilinir. Özellikle ızgara ve fırında pişirme için idealdir.",
     cutCount: 6,
     cuts: [
-      { name: "Kuzu Pirzola (Lamb Chops)", slug: "kuzu-pirzola", icon: "🍖", difficulty: "Orta", bestFor: ["Izgara", "Tava"] },
-      { name: "Kuzu Kol (Lamb Shoulder)", slug: "kuzu-kol", icon: "🍖", difficulty: "Zor", bestFor: ["Braising", "Smoking", "Fırın"] },
-      { name: "Kuzu But (Leg of Lamb)", slug: "kuzu-but", icon: "🍖", difficulty: "Orta", bestFor: ["Fırın", "Izgara", "Braising"] },
-      { name: "Kuzu Kaburga (Lamb Ribs)", slug: "kuzu-kaburga", icon: "🍖", difficulty: "Orta", bestFor: ["Izgara", "Braising"] },
-      { name: "Kuzu İncik (Lamb Shank)", slug: "kuzu-incik", icon: "🍖", difficulty: "Zor", bestFor: ["Braising", "Fırın"] },
-      { name: "Kuzu Rack (Rack of Lamb)", slug: "kuzu-rack", icon: "🍖", difficulty: "Usta", bestFor: ["Fırın", "Izgara"] }
+      { name: "Kuzu Pirzola (Lamb Chops)", slug: "kuzu-pirzola", icon: "🍖", difficulty: "Orta", bestMethods: ["Izgara", "Tava"] },
+      { name: "Kuzu Kol (Lamb Shoulder)", slug: "kuzu-kol", icon: "🍖", difficulty: "Zor", bestMethods: ["Braising", "Smoking", "Fırın"] },
+      { name: "Kuzu But (Leg of Lamb)", slug: "kuzu-but", icon: "🍖", difficulty: "Orta", bestMethods: ["Fırın", "Izgara", "Bracing"] },
+      { name: "Kuzu Kaburga (Lamb Ribs)", slug: "kuzu-kaburga", icon: "🍖", difficulty: "Orta", bestMethods: ["Izgara", "Bracing"] },
+      { name: "Kuzu İncik (Lamb Shank)", slug: "kuzu-incik", icon: "🍖", difficulty: "Zor", bestMethods: ["Bracing", "Fırın"] },
+      { name: "Kuzu Rack (Rack of Lamb)", slug: "kuzu-rack", icon: "🍖", difficulty: "Usta", bestMethods: ["Fırın", "Izgara"] }
     ]
   },
   {
@@ -58,11 +57,11 @@ const animalTypes = [
     description: "En çok tüketilen beyaz et. Hızlı pişmesi ve çok yönlülüğü ile bilinir.",
     cutCount: 5,
     cuts: [
-      { name: "Tavuk Göğsü", slug: "tavuk-gogsu", icon: "🍗", difficulty: "Kolay", bestFor: ["Tava", "Izgara", "Fırın", "Sous Vide"] },
-      { name: "Tavuk But", slug: "tavuk-but", icon: "🍗", difficulty: "Kolay", bestFor: ["Fırın", "Izgara", "Braising"] },
-      { name: "Tavuk Kanat", slug: "tavuk-kanat", icon: "🍗", difficulty: "Kolay", bestFor: ["Izgara", "Fırın", "Deep Fry"] },
-      { name: "Bütün Tavuk", slug: "tavuk-butun", icon: "🍗", difficulty: "Orta", bestFor: ["Fırın", "Izgara", "Deep Fry"] },
-      { name: "Tavuk Bonfile", slug: "tavuk-bonfile", icon: "🍗", difficulty: "Kolay", bestFor: ["Tava", "Izgara", "Sous Vide"] }
+      { name: "Tavuk Göğsü", slug: "tavuk-gogsu", icon: "🍗", difficulty: "Kolay", bestMethods: ["Tava", "Izgara", "Fırın", "Sous Vide"] },
+      { name: "Tavuk But", slug: "tavuk-but", icon: "🍗", difficulty: "Kolay", bestMethods: ["Fırın", "Izgara", "Bracing"] },
+      { name: "Tavuk Kanat", slug: "tavuk-kanat", icon: "🍗", difficulty: "Kolay", bestMethods: ["Izgara", "Fırın", "Deep Fry"] },
+      { name: "Bütün Tavuk", slug: "tavuk-butun", icon: "🍗", difficulty: "Orta", bestMethods: ["Fırın", "Izgara", "Deep Fry"] },
+      { name: "Tavuk Bonfile", slug: "tavuk-bonfile", icon: "🍗", difficulty: "Kolay", bestMethods: ["Tava", "Izgara", "Sous Vide"] }
     ]
   },
   {
@@ -72,8 +71,8 @@ const animalTypes = [
     description: "Sığır ve dana dışı büyükbaş hayvan etleri. Güçlü tada sahip, yavaş pişirme için ideal.",
     cutCount: 2,
     cuts: [
-      { name: "Sığır Antrikot", slug: "sigr-antrikot", icon: "🥩", difficulty: "Orta", bestFor: ["Izgara", "Tava", "Fırın"] },
-      { name: "Sığır Kaburga", slug: "sigr-kaburga", icon: "🥩", difficulty: "Orta", bestFor: ["Braising", "Smoking"] }
+      { name: "Sığır Antrikot", slug: "sigr-antrikot", icon: "🥩", difficulty: "Orta", bestMethods: ["Izgara", "Tava", "Fırın"] },
+      { name: "Sığır Kaburga", slug: "sigr-kaburga", icon: "🥩", difficulty: "Orta", bestMethods: ["Bracing", "Smoking"] }
     ]
   },
   {
@@ -83,10 +82,10 @@ const animalTypes = [
     description: "Koyun ve keçi eti. Geleneksel Türk mutfağının vazgeçilmezi.",
     cutCount: 4,
     cuts: [
-      { name: "Koyun But", slug: "koyun-but", icon: "🐐", difficulty: "Orta", bestFor: ["Fırın", "Braising"] },
-      { name: "Koyun Kol", slug: "koyun-kol", icon: "🐐", difficulty: "Zor", bestFor: ["Braising", "Smoking"] },
-      { name: "Keçi But", slug: "keci-but", icon: "🐐", difficulty: "Orta", bestFor: ["Fırın", "Bracing"] },
-      { name: "Keçi Kol", slug: "keci-kol", icon: "🐐", difficulty: "Zor", bestFor: ["Braising", "Smoking"] }
+      { name: "Koyun But", slug: "koyun-but", icon: "🐐", difficulty: "Orta", bestMethods: ["Fırın", "Bracing"] },
+      { name: "Koyun Kol", slug: "koyun-kol", icon: "🐐", difficulty: "Zor", bestMethods: ["Bracing", "Smoking"] },
+      { name: "Keçi But", slug: "keci-but", icon: "🐐", difficulty: "Orta", bestMethods: ["Fırın", "Bracing"] },
+      { name: "Keçi Kol", slug: "keci-kol", icon: "🐐", difficulty: "Zor", bestMethods: ["Bracing", "Smoking"] }
     ]
   }
 ];
