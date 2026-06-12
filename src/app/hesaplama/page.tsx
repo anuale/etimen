@@ -1,18 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { sauces } from "@/data/sauces";
+import { Badge } from "@/components/ui/badge";
 import { 
   Beef, 
   Thermometer, 
   Clock, 
   Calculator,
   ChefHat,
-  AlertCircle
+  AlertCircle,
+  Sparkles
 } from "lucide-react";
 
 const animalTypes = [
@@ -92,6 +96,8 @@ interface CalculationResult {
   pullTemp: { min: number; max: number };
   restTime: { min: number; max: number };
   doneness: string;
+  cutSlug: string;
+  recommendedSauces: { slug: string; name: string; icon: string }[];
 }
 
 export default function HesaplamaPage() {
@@ -116,6 +122,11 @@ export default function HesaplamaPage() {
     const weightKg = parseFloat(weight) / 1000;
     const baseTime = weightKg * cut.minutesPerKg * method.multiplier;
 
+    const matchingSauces = sauces
+      .filter(s => s.pairings.cuts.includes(selectedCut))
+      .slice(0, 4)
+      .map(s => ({ slug: s.slug, name: s.name, icon: s.icon }));
+
     setResult({
       cutName: cut.name,
       methodName: method.name,
@@ -129,6 +140,8 @@ export default function HesaplamaPage() {
       },
       restTime: { min: 5, max: 10 },
       doneness: doneness.name,
+      cutSlug: selectedCut,
+      recommendedSauces: matchingSauces,
     });
   };
 
@@ -352,6 +365,25 @@ export default function HesaplamaPage() {
                           </div>
                         </div>
                       </div>
+
+                      {/* Sauce Recommendations */}
+                      {result.recommendedSauces.length > 0 && (
+                        <div className="p-3 rounded-lg bg-background/50 space-y-2">
+                          <div className="flex items-center gap-1.5 text-sm font-medium">
+                            <Sparkles className="h-4 w-4 text-primary" />
+                            Önerilen Soslar
+                          </div>
+                          <div className="flex flex-wrap gap-1.5">
+                            {result.recommendedSauces.map(sauce => (
+                              <Link key={sauce.slug} href={`/soslar/${sauce.slug}`}>
+                                <Badge variant="outline" className="cursor-pointer hover:bg-primary/10 gap-1">
+                                  {sauce.icon} {sauce.name}
+                                </Badge>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )}
 
                       <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
                         <div className="flex items-start gap-2">

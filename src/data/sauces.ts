@@ -1156,6 +1156,640 @@ export const sauces: Sauce[] = [
       carbs: 10
     },
     tags: ["orta doğu", "akdeniz", "vegan", "sağlıklı", "kremsi"]
+  },
+  {
+    slug: "bearnaise",
+    name: "Béarnaise Sosu",
+    category: "klasik",
+    icon: "🥚",
+    shortDescription: "Fransız klasiği - tereyağı, sarısı, tarhun, sirke",
+    description: "Fransız haute cuisine'in en zarif soslarından biri olan Béarnaise, tereyağı emülsiyonu, yumurta sarısı, tarhun, frenk soğanı ve beyaz sirke ile hazırlanan, özellikle dana bonfile için yaratılmış kremalı bir sostur.",
+    difficulty: "Zor",
+    prepTime: 10,
+    cookTime: 15,
+    servings: 4,
+    origin: "Fransa",
+    ingredients: [
+      { item: "Tereyağı", amount: "200g", note: "Küp küp doğranmış" },
+      { item: "Yumurta sarısı", amount: "3 adet", note: "Oda sıcaklığında" },
+      { item: "Beyaz şarap sirkesi", amount: "2 yemek kaşığı" },
+      { item: "Beyaz şarap", amount: "2 yemek kaşığı" },
+      { item: "Tarhun", amount: "2 yemek kaşığı", note: "İnce doğranmış" },
+      { item: "Frenk soğanı", amount: "1 yemek kaşığı", note: "İnce doğranmış" },
+      { item: "Şalot", amount: "1 adet", note: "İnce doğranmış" },
+      { item: "Limon suyu", amount: "1 tatlı kaşığı" },
+      { item: "Tuz", amount: "1/2 tatlı kaşığı" },
+      { item: "Karabiber", amount: "1/4 tatlı kaşığı" }
+    ],
+    instructions: [
+      "Küçük bir tencerede sirke, beyaz şarap, şalot ve tarhunun yarısını birleştirin",
+      "Yarıya çekene kadar kısık ateşte pişirin (yaklaşık 5 dakika)",
+      "Soğumaya bırakın",
+      "Benmari usulü bir kapta yumurta sarılarını ve soğuyan sirke karışımını çırpın",
+      "Köpüksü ve koyulaşana kadar çırpın",
+      "Tereyağını yavaş yavaş ekleyin, sürekli çırpın",
+      "Koyu kremalı kıvama gelene kadar çırpmaya devam edin",
+      "Limon suyu, kalan tarhun, frenk soğanı, tuz ve karabiberi ekleyin",
+      "Hemen servis yapın"
+    ],
+    tips: [
+      "Tereyağı çok sıcak olursa sos kesilir - yavaş yavaş ekleyin",
+      "Sos kesilirse 1 yemek kaşığı sıcak su ekleyip hızlı çırpın",
+      "Dana bonfile ve kuşkonmaz için klasik eşlik",
+      "Servis öncesi 30 dakika ılık yerde bekleyebilir"
+    ],
+    pairings: {
+      cuts: ["dana-bonfile", "dana-antrikot", "dana-riploin", "kuzu-pirzola", "dana-sirloin"],
+      methods: ["Izgara", "Tava", "Sous Vide"],
+      occasions: ["Fransız mutfağı", "Özel yemekler", "Romantik akşam", "Steakhouse"]
+    },
+    storageInfo: { fridge: "Buzdolabında 2 gün (tekrar benmari ile ısıtın)" },
+    nutritionalInfo: { servingSize: 60, calories: 290, fat: 32, sodium: 280, carbs: 0.5 },
+    tags: ["fransa", "klasik", "zarif", "zor", "steinhouse"]
+  },
+  {
+    slug: "beurre-blanc",
+    name: "Beurre Blanc (Beyaz Tereyağı Sosu)",
+    category: "klasik",
+    icon: "🧈",
+    shortDescription: "Fransız klasiği - tereyağı, şalot, beyaz şarap",
+    description: "Fransa'nın Loire Vadisi'nden gelen Beurre Blanc, tereyağı, şalot ve beyaz şarap ile hazırlanan, et ve balık yemeklerine hafif ve zarif bir lezzet katan klasik bir emülsiyon sostur.",
+    difficulty: "Orta",
+    prepTime: 5,
+    cookTime: 15,
+    servings: 4,
+    origin: "Fransa (Loire)",
+    ingredients: [
+      { item: "Tereyağı", amount: "150g", note: "Soğuk, küp doğranmış" },
+      { item: "Şalot", amount: "2 adet", note: "İnce doğranmış" },
+      { item: "Beyaz şarap (kuru)", amount: "1/2 su bardağı" },
+      { item: "Beyaz şarap sirkesi", amount: "2 yemek kaşığı" },
+      { item: "Krema", amount: "2 yemek kaşığı" },
+      { item: "Tuz", amount: "1/4 tatlı kaşığı" },
+      { item: "Limon suyu", amount: "1 tatlı kaşığı" }
+    ],
+    instructions: [
+      "Şalotları ince doğrayın",
+      "Küçük tencerede şalot, şarap ve sirkeyi birleştirin",
+      "Yarıya çekene kadar kısık ateşte pişirin (5-7 dakika)",
+      "Kremayı ekleyin, 1 dakika daha pişirin",
+      "Ateşi en kısığa alın",
+      "Soğuk tereyağını tek tek ekleyin, her parça eridikçe diğerini ekleyin",
+      "Pürüzsüz ve kremalı olana kadar çırpın",
+      "Limon suyu ve tuzu ekleyin",
+      "Süzgeçten geçirip servis yapın"
+    ],
+    tips: [
+      "Tereyağı çok sıcakta kesilir - düşük ateş kritik",
+      "Sos kesilirse 1 kaşık soğuk su + tekrar çırpma ile kurtarın",
+      "Tavuk göğsü, dana bonfile ve balık için mükemmel",
+      "Pişen etin üzerine 1-2 kaşık gezdirin"
+    ],
+    pairings: {
+      cuts: ["dana-bonfile", "dana-riploin", "tavuk-gogsu", "tavuk-bonfile", "dana-sirloin"],
+      methods: ["Tava", "Sous Vide", "Fırın"],
+      occasions: ["Fransız bistro", "Hafif yemekler", "Özel akşamlar"]
+    },
+    storageInfo: { fridge: "Buzdolabında 1-2 gün, kısık ateşte ısıtın" },
+    nutritionalInfo: { servingSize: 50, calories: 260, fat: 28, sodium: 180, carbs: 0.5 },
+    tags: ["fransa", "klasik", "hafif", "tereyağlı", "zarif"]
+  },
+  {
+    slug: "romesco",
+    name: "Romesco Sosu",
+    category: "akdeniz",
+    icon: "🌰",
+    shortDescription: "İspanyol klasiği - közlenmiş biber, badem, sarımsak",
+    description: "İspanya'nın Tarragona Katalonya bölgesinden gelen Romesco, közlenmiş kırmızı biber, badem, sarımsak, domates ve zeytinyağı ile hazırlanan, ızgara etler için mükemmel olan zengin ve cevizli bir sostur.",
+    difficulty: "Kolay",
+    prepTime: 15,
+    cookTime: 5,
+    servings: 6,
+    origin: "İspanya (Katalonya)",
+    ingredients: [
+      { item: "Közlenmiş kırmızı biber", amount: "3 adet (300g)", note: "Veya konserve" },
+      { item: "Badem", amount: "1/2 su bardağı", note: "Kavrulmuş" },
+      { item: "Domates (konserve)", amount: "2 adet", note: "Süzülmüş" },
+      { item: "Sarımsak", amount: "2 diş" },
+      { item: "Zeytinyağı", amount: "1/4 su bardağı" },
+      { item: "Kırmızı şarap sirkesi", amount: "1 yemek kaşığı" },
+      { item: "Paprika (tütsülenmiş)", amount: "1 tatlı kaşığı" },
+      { item: "Kırmızı pul biber", amount: "1/2 tatlı kaşığı" },
+      { item: "Tuz", amount: "1/2 tatlı kaşığı" }
+    ],
+    instructions: [
+      "Bademleri kuru tavada 2-3 dakika kavurun",
+      "Mutfak robotuna bademleri koyun, kaba çekin",
+      "Közlenmiş biber, domates, sarımsak ekleyin",
+      "Zeytinyağı, sirke, paprika, pul biber ekleyin",
+      "Pürüzsüz olana kadar çekin",
+      "Tuz ile tatlandırın",
+      "En az 30 dakika dinlendirin"
+    ],
+    tips: [
+      "Daha kalın için daha az zeytinyağı, daha akışkan için daha çok",
+      "Tam tahıl veya çekirdeklerle kıvam ayarlayın",
+      "Izgara tavuk, biftek ve sebzelerle enfes",
+      "Brüşeta veya makarna için de kullanın"
+    ],
+    pairings: {
+      cuts: ["tavuk-gogsu", "dana-antrikot", "kuzu-pirzola", "dana-flank", "tavuk-but"],
+      methods: ["Izgara", "Fırın", "Tava", "Şiş"],
+      occasions: ["İspanyol mutfağı", "Yaz yemekleri", "Akdeniz sofraları"]
+    },
+    storageInfo: { fridge: "Buzdolabında 1 hafta" },
+    nutritionalInfo: { servingSize: 40, calories: 145, fat: 12, sodium: 250, carbs: 6 },
+    tags: ["ispanya", "akdeniz", "vegan", "hızlı", "cevizli"]
+  },
+  {
+    slug: "chermoula",
+    name: "Chermoula",
+    category: "akdeniz",
+    icon: "🌿",
+    shortDescription: "Fas klasiği - maydanoz, kişniş, kimyon, limon",
+    description: "Fas mutfağının eşsiz sosu Chermoula, taze maydanoz, kişniş, sarımsak, kimyon ve limon suyu ile hazırlanan, ızgara etler ve deniz ürünleri için mükemmel olan aromatik ve canlı bir sostur.",
+    difficulty: "Kolay",
+    prepTime: 10,
+    cookTime: 0,
+    servings: 6,
+    origin: "Fas",
+    ingredients: [
+      { item: "Taze maydanoz", amount: "1 demet (30g)" },
+      { item: "Taze kişniş", amount: "1/2 demet (15g)" },
+      { item: "Sarımsak", amount: "4-5 diş" },
+      { item: "Kimyon", amount: "1 tatlı kaşığı" },
+      { item: "Paprika", amount: "1 tatlı kaşığı" },
+      { item: "Kırmızı pul biber", amount: "1/2 tatlı kaşığı" },
+      { item: "Limon suyu", amount: "3 yemek kaşığı" },
+      { item: "Zeytinyağı", amount: "80 ml" },
+      { item: "Tuz", amount: "1/2 tatlı kaşığı" }
+    ],
+    instructions: [
+      "Maydanoz ve kişnişi yıkayın ve iyice kurulayın",
+      "Tüm otları ince doğrayın",
+      "Sarımsakları ezin",
+      "Geniş bir kasede tüm malzemeleri birleştirin",
+      "Zeytinyağı ve limon suyunu ekleyip karıştırın",
+      "Kimyon, paprika, pul biber ve tuzu ekleyin",
+      "En az 30 dakika dinlendirin"
+    ],
+    tips: [
+      "Marine sosu olarak da kullanılır (6-12 saat)",
+      "Kuzu şiş, tavuk şiş ve bifteklere fırça ile sürün",
+      "Kafes veya ızgarada pişen etlere sürün",
+      "Marine edip pişirin - çok hafif yanar, lezzet verir"
+    ],
+    pairings: {
+      cuts: ["kuzu-pirzola", "kuzu-but", "kuzu-kol", "tavuk-but", "tavuk-gogsu", "dana-flank"],
+      methods: ["Izgara", "Fırın", "Şiş", "Tava"],
+      occasions: ["Fas mutfağı", "Akdeniz", "BBQ", "Yaz yemekleri"]
+    },
+    storageInfo: { fridge: "Buzdolabında 1 hafta" },
+    nutritionalInfo: { servingSize: 30, calories: 120, fat: 12, sodium: 180, carbs: 1 },
+    tags: ["fas", "akdeniz", "vegan", "hızlı", "baharatlı"]
+  },
+  {
+    slug: "acuka",
+    name: "Acuka (Muhammara)",
+    category: "akdeniz",
+    icon: "🌶️",
+    shortDescription: "Türk-Orta Doğu klasiği - ceviz, biber salçası, nar ekşisi",
+    description: "Türk ve Orta Doğu mutfağının vazgeçilmezi olan Acuka (Muhammara), közlenmiş kırmızı biber, ceviz, biber salçası, nar ekşisi ve baharatlarla hazırlanan, et yemeklerine eşsiz bir tat katan koyu kırmızı renkli bir sostur.",
+    difficulty: "Kolay",
+    prepTime: 15,
+    cookTime: 0,
+    servings: 6,
+    origin: "Türkiye / Suriye",
+    ingredients: [
+      { item: "Közlenmiş kırmızı biber", amount: "3 adet" },
+      { item: "Ceviz içi", amount: "1 su bardağı" },
+      { item: "Biber salçası", amount: "2 yemek kaşığı" },
+      { item: "Nar ekşisi", amount: "2 yemek kaşığı" },
+      { item: "Zeytinyağı", amount: "3 yemek kaşığı" },
+      { item: "Sarımsak", amount: "2 diş" },
+      { item: "Pul biber", amount: "1 tatlı kaşığı" },
+      { item: "Kimyon", amount: "1/2 tatlı kaşığı" },
+      { item: "Galeta unu", amount: "1 yemek kaşığı", note: "Kıvam için" },
+      { item: "Tuz", amount: "1/2 tatlı kaşığı" }
+    ],
+    instructions: [
+      "Cevizleri mutfak robotunda kaba çekin (un haline getirmeyin)",
+      "Közlenmiş biberleri ekleyin",
+      "Sarımsak, salça, nar ekşisi, zeytinyağını ekleyin",
+      "Pul biber, kimyon ve tuzu ekleyin",
+      "Pürüzlü bir kıvam alana kadar çalıştırın",
+      "Koyu ise galeta unu ekleyin",
+      "Servis tabağına alın, üzerine zeytinyağı gezdirin"
+    ],
+    tips: [
+      "Ceviz yerine fındık veya badem de kullanabilirsiniz",
+      "Çıtır ekmek, et, köfte ile servis yapın",
+      "Kış hazırlığı olarak kavanozlanabilir",
+      "Kahvaltıda da mükemmeldir"
+    ],
+    pairings: {
+      cuts: ["dana-kıyma", "kuzu-pirzola", "kuzu-kol", "dana-antrikot", "koyun-but", "kuzu-şiş"],
+      methods: ["Izgara", "Fırın", "Şiş"],
+      occasions: ["Türk mutfağı", "Mezeler", "Kahvaltı", "BBQ"]
+    },
+    storageInfo: { fridge: "Buzdolabında 2 hafta" },
+    nutritionalInfo: { servingSize: 40, calories: 165, fat: 14, sodium: 220, carbs: 7 },
+    tags: ["türk", "orta doğu", "vegan", "cevizli", "meze"]
+  },
+  {
+    slug: "naneli-yogurt",
+    name: "Naneli Yoğurt Sosu",
+    category: "akdeniz",
+    icon: "🌿",
+    shortDescription: "Taze nane ve yoğurt - ferahlatıcı, kebaplar için",
+    description: "Anadolu mutfağının ferahlatıcı lezzeti nane yoğurtlu sos, süzme yoğurt, taze nane, sarımsak ve limon ile hazırlanan, özellikle kebaplar ve ızgara etlerin yanında soğuk servis edilen klasik bir mezedir.",
+    difficulty: "Kolay",
+    prepTime: 5,
+    cookTime: 0,
+    servings: 4,
+    origin: "Türkiye",
+    ingredients: [
+      { item: "Süzme yoğurt", amount: "2 su bardağı" },
+      { item: "Taze nane", amount: "1/2 demet (15g)", note: "İnce kıyılmış" },
+      { item: "Kuru nane", amount: "1 tatlı kaşığı" },
+      { item: "Sarımsak", amount: "1-2 diş", note: "Ezilmiş" },
+      { item: "Limon suyu", amount: "1 yemek kaşığı" },
+      { item: "Zeytinyağı", amount: "1 yemek kaşığı" },
+      { item: "Tuz", amount: "1/2 tatlı kaşığı" }
+    ],
+    instructions: [
+      "Yoğurdu bir kaseye alın",
+      "Taze naneyi ince ince kıyın",
+      "Sarımsağı ezin",
+      "Tüm malzemeleri yoğurda ekleyin",
+      "İyice karıştırın",
+      "Üzerine zeytinyağı gezdirin",
+      "Servis yapmadan önce 10-15 dakika dinlendirin"
+    ],
+    tips: [
+      "Kuru nane yerine taze nanenin 2 katını kullanın",
+      "Kebaplar, pirzola ve Adana için idealdir",
+      "Acılı sevenler pul biber ekleyebilir",
+      "Yanında lavaş veya grissini ile servis yapın"
+    ],
+    pairings: {
+      cuts: ["kuzu-pirzola", "kuzu-kol", "dana-kıyma", "kuzu-incik", "tavuk-but", "kuzu-şiş"],
+      methods: ["Izgara", "Fırın", "Şiş"],
+      occasions: ["Türk mutfağı", "Kebap gecesi", "Yaz yemekleri"]
+    },
+    storageInfo: { fridge: "Buzdolabında 3-4 gün" },
+    nutritionalInfo: { servingSize: 60, calories: 55, fat: 3, sodium: 140, carbs: 3 },
+    tags: ["türk", "akdeniz", "hızlı", "ferah", "sağlıklı"]
+  },
+  {
+    slug: "mavi-peynir-sosu",
+    name: "Mavi Peynir (Blue Cheese) Sosu",
+    category: "klavik",
+    icon: "🧀",
+    shortDescription: "Amerikan klasiği - mavi peynir, krema, mayonez",
+    description: "Amerikan steakhouse kültürünün vazgeçilmezi mavi peynir sosu, mavi peynir (Roquefort/Gorgonzola), krema, mayonez ve limon ile hazırlanan, güçlü lezzetiyle steak ve kanatlarla mükemmel uyum sağlayan kremalı bir sostur.",
+    difficulty: "Kolay",
+    prepTime: 10,
+    cookTime: 5,
+    servings: 4,
+    origin: "Amerika",
+    ingredients: [
+      { item: "Mavi peynir (Roquefort/Gorgonzola)", amount: "120g", note: "Ufalanmış" },
+      { item: "Krema", amount: "1/4 su bardağı" },
+      { item: "Mayonez", amount: "1/4 su bardağı" },
+      { item: "Limon suyu", amount: "1 yemek kaşığı" },
+      { item: "Sarımsak", amount: "1 diş", note: "Ezilmiş" },
+      { item: "Tuz ve karabiber", amount: "Damak tadına göre" }
+    ],
+    instructions: [
+      "Kremayı ve mayonezi bir kasede çırpın",
+      "Mavi peynirin yarısını ekleyin ve çatalla ezin",
+      "Kalan peyniri iri parçalar halinde bırakın",
+      "Limon suyu, sarımsak ekleyin",
+      "Tuz, karabiber ile tatlandırın",
+      "Buzdolabında 30 dk dinlendirin"
+    ],
+    tips: [
+      "Bifteğin üzerinde eriyen mavi peynir - steak için klasik",
+      "Limon kanatlar veya sebzeler için ekstra lezzet",
+      "Koyu ise 1-2 yemek kaşığı süt ekleyin",
+      "Roquefort en yoğun, Gorgonzola daha yumuşak lezzetlidir"
+    ],
+    pairings: {
+      cuts: ["dana-bonfile", "dana-antrikot", "dana-riploin", "tavuk-kanat", "dana-sirloin"],
+      methods: ["Izgara", "Tava", "Fırın"],
+      occasions: ["Steakhouse", "BBQ", "Parti yemekleri"]
+    },
+    storageInfo: { fridge: "Buzdolabında 1 hafta" },
+    nutritionalInfo: { servingSize: 40, calories: 210, fat: 20, sodium: 380, carbs: 2 },
+    tags: ["amerika", "peynir", "steakhouse", "kremamsı", "hızlı"]
+  },
+  {
+    slug: "gochujang-glaze",
+    name: "Gochujang Glaze Sosu",
+    category: "asya",
+    icon: "🌶️",
+    shortDescription: "Kore klasiği - fermente acı biber ezmesi",
+    description: "Kore mutfağının kalbi olan Gochujang, fermente acı biber ezmesi, bal, soya sosu ve susam yağı ile hazırlanan, tatlı-acı-tuzlu dengesiyle kanat, kaburga ve bifteklere parlak bir kaplama veren modern bir sostur.",
+    difficulty: "Kolay",
+    prepTime: 5,
+    cookTime: 10,
+    servings: 4,
+    origin: "Kore",
+    ingredients: [
+      { item: "Gochujang (Kore acı biber ezmesi)", amount: "3 yemek kaşığı" },
+      { item: "Bal", amount: "2 yemek kaşığı" },
+      { item: "Soya sosu", amount: "1 yemek kaşığı" },
+      { item: "Susam yağı", amount: "1 yemek kaşığı" },
+      { item: "Sarımsak", amount: "2 diş", note: "Ezilmiş" },
+      { item: "Zencefil", amount: "1 tatlı kaşığı", note: "Rendelenmiş" },
+      { item: "Pirinç sirkesi", amount: "1 yemek kaşığı" },
+      { item: "Susam", amount: "Süslemek için" }
+    ],
+    instructions: [
+      "Tüm malzemeleri bir kasede çırpın",
+      "Küçük bir tencerede orta ateşte kaynayana kadar pişirin",
+      "Kısık ateşte 5 dakika koyulaştırın",
+      "Pişen etin üzerine fırça ile sürün",
+      "Susam ile süsleyip servis yapın"
+    ],
+    tips: [
+      "Kore BBQ (galbi) için mükemmeldir",
+      "Marine sosu olarak da kullanın (2-4 saat)",
+      "Pişme bitimine 5 dakika kala sürün - yanmasın",
+      "Acı seviyesini bal/gochujang oranıyla dengeleyin"
+    ],
+    pairings: {
+      cuts: ["tavuk-kanat", "tavuk-but", "dana-short-ribs", "dana-riploin", "kuzu-pirzola"],
+      methods: ["Izgara", "Fırın", "Tava", "Kore BBQ"],
+      occasions: ["Kore mutfağı", "BBQ", "Asya geceleri", "Parti"]
+    },
+    storageInfo: { fridge: "Buzdolabında 2 hafta" },
+    nutritionalInfo: { servingSize: 30, calories: 75, fat: 2, sodium: 420, carbs: 12 },
+    tags: ["kore", "asya", "baharatlı", "tatlı", "parlak"]
+  },
+  {
+    slug: "tatli-biber-sosu",
+    name: "Tatlı Acı Biber Sosu (Sweet Chili)",
+    category: "asya",
+    icon: "🌶️",
+    shortDescription: "Tayland klasiği - tatlı-acı, kanat ve şişler için",
+    description: "Tayland mutfağının dünyaca ünlü sosu tatlı acı biber sosu, kırmızı biber, şeker, sarımsak ve pirinç sirkesi ile hazırlanan, tatlı ve baharatlı dengesiyle etleri saran parlak, cam gibi bir sostur.",
+    difficulty: "Kolay",
+    prepTime: 5,
+    cookTime: 15,
+    servings: 6,
+    origin: "Tayland",
+    ingredients: [
+      { item: "Taze kırmızı biber", amount: "4 adet", note: "İnce doğranmış" },
+      { item: "Sarımsak", amount: "3 diş", note: "İnce doğranmış" },
+      { item: "Toz şeker", amount: "1/2 su bardağı" },
+      { item: "Pirinç sirkesi", amount: "1/4 su bardağı" },
+      { item: "Su", amount: "1/4 su bardağı" },
+      { item: "Tuz", amount: "1/2 tatlı kaşığı" },
+      { item: "Mısır nişastası", amount: "1 yemek kaşığı", note: "1 yemek kaşığı su ile" }
+    ],
+    instructions: [
+      "Biberleri ince ince doğrayın (ince doğrayın, blender kullanmayın)",
+      "Küçük bir tencerede biber, sarımsak, şeker, sirke, su ve tuzu birleştirin",
+      "Orta ateşte kaynama noktasına getirin",
+      "Şeker eriyene kadar karıştırın",
+      "Mısır nişastası karışımını ekleyin",
+      "Sos koyulaşana kadar (2-3 dakika) karıştırın",
+      "Ocaktan alın, soğumaya bırakın"
+    ],
+    tips: [
+      "Daha az acılı için biber çekirdeklerini çıkarın",
+      "Kanat, şiş ve kızartmalar için ideal",
+      "Buzdolabında 2 hafta bozulmaz",
+      "Elinize biber bulaşırsa limonla ovalayın"
+    ],
+    pairings: {
+      cuts: ["tavuk-kanat", "tavuk-but", "tavuk-gogsu", "dana-flank", "dana-kıyma"],
+      methods: ["Deep Fry", "Izgara", "Fırın", "Wok"],
+      occasions: ["Tayland mutfağı", "Parti", "Atıştırmalık", "BBQ"]
+    },
+    storageInfo: { fridge: "Buzdolabında 2 hafta" },
+    nutritionalInfo: { servingSize: 30, calories: 65, fat: 0.1, sodium: 180, carbs: 16 },
+    tags: ["tayland", "asya", "tatlı", "baharatlı", "parlak"]
+  },
+  {
+    slug: "balli-sarimsak-sosu",
+    name: "Ballı Sarımsak Sosu",
+    category: "asya",
+    icon: "🍯",
+    shortDescription: "Tatlı sarımsaklı - tavuk ve dana için evrensel",
+    description: "Asya füzyon mutfağının en sevilen soslarından biri olan ballı sarımsak sosu, bal, soya sosu, sarımsak ve zencefil ile hazırlanan, tatlı ve tuzlu dengesini tutturmuş, tavuk ve danayla mükemmel uyum sağlayan çok yönlü bir sostur.",
+    difficulty: "Kolay",
+    prepTime: 5,
+    cookTime: 10,
+    servings: 4,
+    origin: "Asya Füzyon",
+    ingredients: [
+      { item: "Bal", amount: "1/3 su bardağı" },
+      { item: "Soya sosu", amount: "3 yemek kaşığı" },
+      { item: "Sarımsak", amount: "4 diş", note: "İnce doğranmış" },
+      { item: "Zencefil", amount: "1 tatlı kaşığı", note: "Rendelenmiş" },
+      { item: "Pirinç sirkesi", amount: "1 yemek kaşığı" },
+      { item: "Susam yağı", amount: "1 tatlı kaşığı" },
+      { item: "Mısır nişastası", amount: "1 tatlı kaşığı", note: "1 yemek kaşığı su ile" },
+      { item: "Yeşil soğan", amount: "2 dal", note: "Süslemek için" }
+    ],
+    instructions: [
+      "Küçük bir kasede bal, soya sosu, sirke ve susam yağını karıştırın",
+      "Ayrı bir tavada 1 tatlı kaşığı yağ ile sarımsak ve zencefili 1 dakika kavurun",
+      "Bal karışımını ekleyin",
+      "Mısır nişastasını ekleyip koyulaşana kadar karıştırın",
+      "Pişen etin üzerine fırça ile sürün",
+      "Yeşil soğan ile süsleyin"
+    ],
+    tips: [
+      "Marine sosu olarak da kullanın (30 dk - 2 saat)",
+      "Pişme sonunda sürmek en iyisi - yanmaz, lezzet kalır",
+      "Tavuk kanat ve baget için vazgeçilmez",
+      "Dana bifteklerde son 2 dakika sürün"
+    ],
+    pairings: {
+      cuts: ["tavuk-kanat", "tavuk-but", "tavuk-gogsu", "dana-riploin", "dana-sirloin", "dana-bonfile"],
+      methods: ["Fırın", "Izgara", "Tava", "Wok"],
+      occasions: ["Hafta içi yemekleri", "Aile sofraları", "Asya geceleri"]
+    },
+    storageInfo: { fridge: "Buzdolabında 2 hafta" },
+    nutritionalInfo: { servingSize: 30, calories: 80, fat: 1.5, sodium: 380, carbs: 15 },
+    tags: ["füzyon", "asya", "tatlı", "hızlı", "çok yönlü"]
+  },
+  {
+    slug: "oyster-sos",
+    name: "İstiridye (Oyster) Sosu",
+    category: "asya",
+    icon: "🦪",
+    shortDescription: "Çin klasiği - umami bombası, et ve sebzeler için",
+    description: "Çin mutfağının umami deposu istiridye sosu, karamelize istiridye özü, soya sosu ve baharatlarla hazırlanan, et ve sebze yemeklerine derinlik katan, koyu ve zengin bir sostur.",
+    difficulty: "Kolay",
+    prepTime: 5,
+    cookTime: 5,
+    servings: 4,
+    origin: "Çin / Tayvan",
+    ingredients: [
+      { item: "İstiridye sosu (konserve)", amount: "4 yemek kaşığı" },
+      { item: "Soya sosu (koyu)", amount: "1 yemek kaşığı" },
+      { item: "Esmer şeker", amount: "1 tatlı kaşığı" },
+      { item: "Susam yağı", amount: "1 tatlı kaşığı" },
+      { item: "Sarımsak", amount: "2 diş", note: "Ezilmiş" },
+      { item: "Zencefil", amount: "1/2 tatlı kaşığı", note: "Rendelenmiş" },
+      { item: "Mısır nişastası", amount: "1 tatlı kaşığı", note: "1 yemek kaşığı su ile" }
+    ],
+    instructions: [
+      "Küçük bir kasede istiridye sosu, soya sosu, şeker ve susam yağını karıştırın",
+      "Tavada 1 tatlı kaşığı yağda sarımsak ve zencefili 30 saniye kavurun",
+      "Sos karışımını ekleyin",
+      "Mısır nişastasını ekleyip koyulaşana kadar karıştırın",
+      "Pişen etin üzerine dökün"
+    ],
+    tips: [
+      "Marine sosu olarak da kullanın (1-2 saat)",
+      "Dana şiş, tavuk sote ve sebzeler için ideal",
+      "Wok yemeklerinde ana sos olarak kullanılır",
+      "Tuz eklemeniz gerekmez - soya/istiridye zaten tuzlu"
+    ],
+    pairings: {
+      cuts: ["dana-flank", "dana-sirloin", "tavuk-gogsu", "tavuk-but", "dana-kıyma"],
+      methods: ["Wok", "Tava", "Stir-fry", "Izgara"],
+      occasions: ["Çin mutfağı", "Hızlı wok yemekleri", "Hafta içi"]
+    },
+    storageInfo: { fridge: "Buzdolabında 1 ay" },
+    nutritionalInfo: { servingSize: 30, calories: 35, fat: 0.5, sodium: 720, carbs: 5 },
+    tags: ["çin", "asya", "umami", "hızlı", "koyu"]
+  },
+  {
+    slug: "zencefil-sogan-yagi",
+    name: "Zencefil-Soğan Yağı (Ginger Scallion Oil)",
+    category: "asya",
+    icon: "🌿",
+    shortDescription: "Çin klasiği - taze zencefil ve yeşil soğan yağı",
+    description: "Çin ve Kanton mutfağının basit ama etkili sosu zencefil-soğan yağı, taze zencefil, yeşil soğan ve sıcak yağ ile hazırlanan, haşlanmış tavuk ve basit etlere parlak ve taze lezzet katan minimal bir sostur.",
+    difficulty: "Kolay",
+    prepTime: 10,
+    cookTime: 5,
+    servings: 4,
+    origin: "Çin (Kanton)",
+    ingredients: [
+      { item: "Yeşil soğan", amount: "1 demet (6-7 dal)", note: "İnce kıyılmış" },
+      { item: "Taze zencefil", amount: "3 yemek kaşığı (30g)", note: "Rendelenmiş" },
+      { item: "Sıvı yağ (kanola/ayçiçek)", amount: "1/2 su bardağı" },
+      { item: "Tuz", amount: "1/2 tatlı kaşığı" },
+      { item: "Pul biber", amount: "1/2 tatlı kaşığı", note: "Opsiyonel" }
+    ],
+    instructions: [
+      "Yeşil soğanları ince ince kıyın (hem beyaz hem yeşil kısım)",
+      "Zencefili rendeleyin",
+      "Isıya dayanıklı bir kasede soğan ve zencefili birleştirin",
+      "Tuz ve pul biber ekleyin",
+      "Küçük bir tavada yağı yüksek ateşte kızdırın (hafif tüten noktaya)"
+    ],
+    tips: [
+      "Yağın sıcaklığı kritik - soğan ve zencefil cızırdamalı",
+      "Haşlanmış tavuk, dana şiş, balık için mükemmel",
+      "Kullanmadığınız kısmı buzdolabında 1 hafta saklayın",
+      "Soya sosu ile karıştırıp dipping sos olarak kullanın"
+    ],
+    pairings: {
+      cuts: ["tavuk-gogsu", "tavuk-but", "dana-flank", "dana-sirloin", "tavuk-butun"],
+      methods: ["Haşlama", "Buhar", "Tava", "Simple Prep"],
+      occasions: ["Çin mutfağı", "Basit yemekler", "Sağlıklı beslenme"]
+    },
+    storageInfo: { fridge: "Buzdolabında 1 hafta" },
+    nutritionalInfo: { servingSize: 20, calories: 160, fat: 18, sodium: 180, carbs: 1 },
+    tags: ["çin", "asya", "hızlı", "zencefil", "taze"]
+  },
+  {
+    slug: "nane-sosu",
+    name: "Nane Sosu (Mint Sauce)",
+    category: "klasik",
+    icon: "🌿",
+    shortDescription: "İngiliz klasiği - nane, sirke, şeker - kuzu ile",
+    description: "İngiliz mutfağının tartışmasız kuzu sosu olan nane sosu, taze nane, beyaz sirke ve şeker ile hazırlanan, özellikle kuzu etiyle eşleşen, ferahlatıcı ve hafif asidik bir sostur.",
+    difficulty: "Kolay",
+    prepTime: 10,
+    cookTime: 0,
+    servings: 6,
+    origin: "İngiltere",
+    ingredients: [
+      { item: "Taze nane yaprağı", amount: "1 demet (40g)", note: "Sıkıca paketlenmiş" },
+      { item: "Beyaz şarap sirkesi", amount: "3 yemek kaşığı" },
+      { item: "Elma sirkesi", amount: "1 yemek kaşığı" },
+      { item: "Toz şeker", amount: "2 yemek kaşığı" },
+      { item: "Sıcak su", amount: "2 yemek kaşığı" },
+      { item: "Tuz", amount: "1/4 tatlı kaşığı" }
+    ],
+    instructions: [
+      "Naneyi yıkayıp iyice kurulayın",
+      "İnce ince kıyın (veya mutfak robotunda kaba çekin)",
+      "Küçük bir kasede şeker ve sıcak suyu karıştırın",
+      "Şeker eriyince sirkeleri ekleyin",
+      "Naneyi ekleyip karıştırın",
+      "En az 1 saat (tercihen 4-6 saat) dinlendirin"
+    ],
+    tips: [
+      "Zamanla lezzeti artar - 1 gün önceden yapın",
+      "Kuzu eti için vazgeçilmez - özellikle kuzu but",
+      "Sirkeler taze olmalı - bayat sirke sosu mahveder",
+      "Daha tatlı için şeker, daha asidik için sirke artırın"
+    ],
+    pairings: {
+      cuts: ["kuzu-pirzola", "kuzu-but", "kuzu-rack", "kuzu-incik"],
+      methods: ["Fırın", "Izgara", "Tava"],
+      occasions: ["İngiliz mutfağı", "Pazar yemeği", "Özel davetler"]
+    },
+    storageInfo: { fridge: "Buzdolabında 2 hafta" },
+    nutritionalInfo: { servingSize: 20, calories: 25, fat: 0, sodium: 60, carbs: 5 },
+    tags: ["ingiltere", "klasik", "ferah", "hızlı", "kuzu"]
+  },
+  {
+    slug: "mojo-sosu",
+    name: "Mojo Sosu (Portakallı Sarımsak)",
+    category: "akdeniz",
+    icon: "🍊",
+    shortDescription: "Küba klasiği - portakal, sarımsak, zeytinyağı",
+    description: "Küba mutfağının kalbi Mojo (Mojo Criollo), portakal suyu, sarımsak, zeytinyağı ve baharatlarla hazırlanan, ızgara etlere parlak ve asidik lezzet katan Latin Amerika'nın en sevilen soslarından biridir.",
+    difficulty: "Kolay",
+    prepTime: 5,
+    cookTime: 10,
+    servings: 6,
+    origin: "Küba",
+    ingredients: [
+      { item: "Portakal suyu (taze sıkılmış)", amount: "1/2 su bardağı" },
+      { item: "Limon suyu", amount: "2 yemek kaşığı" },
+      { item: "Sarımsak", amount: "6 diş", note: "İnce dilimlenmiş" },
+      { item: "Zeytinyağı", amount: "1/4 su bardağı" },
+      { item: "Kimyon", amount: "1 tatlı kaşığı" },
+      { item: "Kekik (kuru)", amount: "1 tatlı kaşığı" },
+      { item: "Tuz", amount: "1/2 tatlı kaşığı" },
+      { item: "Karabiber", amount: "1/4 tatlı kaşığı" },
+      { item: "Taze kişniş", amount: "1/4 demet", note: "Doğranmış, opsiyonel" }
+    ],
+    instructions: [
+      "Küçük bir tavada zeytinyağını orta ateşte ısıtın",
+      "Sarımsakları ekleyin ve altın rengi olana kadar 2-3 dakika kavurun",
+      "Portakal suyu, limon suyu ekleyin",
+      "Kimyon, kekik, tuz ve karabiber ekleyin",
+      "3-4 dakika kaynatın",
+      "Ocaktan alın, kişniş ekleyin (opsiyonel)"
+    ],
+    tips: [
+      "Marine sosu olarak en iyisi (4-12 saat)",
+      "Küba biftek (palomilla) ve tropik ızgaralar için mükemmel",
+      "Marine edip pişirirken fırça ile sürün",
+      "Artan sosu pilav veya siyah fasulye ile kullanın"
+    ],
+    pairings: {
+      cuts: ["dana-sirloin", "dana-flank", "tavuk-but", "tavuk-gogsu", "dana-bonfile"],
+      methods: ["Izgara", "Fırın", "Tava", "Marine"],
+      occasions: ["Latin mutfağı", "BBQ", "Yaz partileri", "Tropik akşamlar"]
+    },
+    storageInfo: { fridge: "Buzdolabında 1 hafta" },
+    nutritionalInfo: { servingSize: 30, calories: 65, fat: 5, sodium: 180, carbs: 3 },
+    tags: ["küba", "akdeniz", "portakallı", "hızlı", "marinade"]
   }
 ];
 

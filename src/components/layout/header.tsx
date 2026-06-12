@@ -10,6 +10,8 @@ const navigation = [
   { name: "Et Türleri", href: "/et-turu" },
   { name: "Pişirme Rehberi", href: "/hesaplama" },
   { name: "Soslar", href: "/soslar" },
+  { name: "Baharatlar", href: "/baharatlar" },
+  { name: "Dinlenme Süresi", href: "/dinlenme-suresi" },
 ];
 
 export function Header() {
