@@ -17,8 +17,14 @@ import {
   Utensils,
   Droplets,
   Timer,
-  Calculator
+  Calculator,
+  FlaskConical,
+  Sparkles,
+  Lightbulb
 } from "lucide-react";
+import { marinades } from "@/data/marinades";
+import { rubs } from "@/data/rubs";
+import { sauces } from "@/data/sauces";
 
 // Statik kesim verileri
 const cutsData: Record<string, CutData> = {
@@ -1737,6 +1743,75 @@ export default async function CutDetailPage({ params }: { params: Promise<{ slug
               </div>
             </CardContent>
           </Card>
+
+          {/* Önerilen Marineler, Rub'lar ve Soslar */}
+          {(() => {
+            const matchingMarinades = marinades.filter(m => m.pairings.cuts.includes(slug));
+            const matchingRubs = rubs.filter(r => r.pairings.cuts.includes(slug));
+            const matchingSauces = sauces.filter(s => s.pairings.cuts.includes(slug));
+            const hasAny = matchingMarinades.length > 0 || matchingRubs.length > 0 || matchingSauces.length > 0;
+            if (!hasAny) return null;
+            return (
+              <Card className="mt-8">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Lightbulb className="h-5 w-5 text-primary" />
+                    Bu Kesim İçin Önerilenler
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  {matchingMarinades.length > 0 && (
+                    <div>
+                      <h4 className="flex items-center gap-2 font-semibold text-sm mb-3">
+                        <FlaskConical className="h-4 w-4 text-primary" /> Önerilen Marineler
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {matchingMarinades.map(m => (
+                          <Link key={m.slug} href={`/marineler/${m.slug}`}>
+                            <Badge variant="outline" className="cursor-pointer hover:bg-primary/10 flex items-center gap-1 py-1.5">
+                              <span>{m.icon}</span> {m.name}
+                            </Badge>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {matchingRubs.length > 0 && (
+                    <div>
+                      <h4 className="flex items-center gap-2 font-semibold text-sm mb-3">
+                        <Sparkles className="h-4 w-4 text-primary" /> Önerilen Baharat Rub'ları
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {matchingRubs.map(r => (
+                          <Link key={r.slug} href={`/baharatlar/${r.slug}`}>
+                            <Badge variant="outline" className="cursor-pointer hover:bg-primary/10 flex items-center gap-1 py-1.5">
+                              <span>{r.icon}</span> {r.name}
+                            </Badge>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {matchingSauces.length > 0 && (
+                    <div>
+                      <h4 className="flex items-center gap-2 font-semibold text-sm mb-3">
+                        <Utensils className="h-4 w-4 text-primary" /> Önerilen Soslar
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {matchingSauces.map(s => (
+                          <Link key={s.slug} href={`/soslar/${s.slug}`}>
+                            <Badge variant="outline" className="cursor-pointer hover:bg-primary/10 flex items-center gap-1 py-1.5">
+                              <span>{s.icon}</span> {s.name}
+                            </Badge>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            );
+          })()}
 
           {/* CTA */}
           <div className="mt-8 text-center">
