@@ -11,7 +11,8 @@ const navigation = [
   { name: "Pişirme Rehberi", href: "/hesaplama" },
   { name: "Soslar", href: "/soslar" },
   { name: "Baharatlar", href: "/baharatlar" },
-  { name: "Dinlenme Süresi", href: "/dinlenme-suresi" },
+  { name: "Marineler", href: "/marineler" },
+  { name: "Dinlenme", href: "/dinlenme-suresi" },
 ];
 
 export function Header() {
