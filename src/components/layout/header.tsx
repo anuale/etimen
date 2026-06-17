@@ -8,10 +8,11 @@ import { Button } from "@/components/ui/button";
 const navigation = [
   { name: "Ana Sayfa", href: "/" },
   { name: "Et Türleri", href: "/et-turu" },
-  { name: "Pişirme Rehberi", href: "/hesaplama" },
+  { name: "Pişirme", href: "/hesaplama" },
   { name: "Soslar", href: "/soslar" },
-  { name: "Baharatlar", href: "/baharatlar" },
-  { name: "Marineler", href: "/marineler" },
+  { name: "Baharat", href: "/baharatlar" },
+  { name: "Marine", href: "/marineler" },
+  { name: "Seviye", href: "/pisirme-seviyesi" },
   { name: "Dinlenme", href: "/dinlenme-suresi" },
 ];
 
