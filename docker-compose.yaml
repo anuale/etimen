@@ -8,12 +8,12 @@ services:
     container_name: etimen-app
     restart: unless-stopped
     environment:
-      - DATABASE_URL=postgresql://etimen:etimen_secure_pass@db:5432/etimen
+      - DATABASE_URL=postgresql://etimen:etimen_secure_pass@db:5432/etimen?connection_limit=5
       - NEXTAUTH_URL=https://bsr41lqbdqxe9imp133h0isl.152.53.151.102.sslip.io
       - NEXTAUTH_SECRET=etimen-super-secret-key-change-in-production
       - NEXT_PUBLIC_APP_NAME=Etimen
       - NEXT_PUBLIC_APP_URL=https://bsr41lqbdqxe9imp133h0isl.152.53.151.102.sslip.io
-      - NODE_OPTIONS=--max-old-space-size=512
+      - NODE_OPTIONS=--max-old-space-size=1024
     depends_on:
       db:
         condition: service_healthy
@@ -23,16 +23,16 @@ services:
       resources:
         limits:
           cpus: '1.0'
-          memory: 768M
+          memory: 1536M
         reservations:
-          cpus: '0.25'
-          memory: 256M
+          cpus: '0.5'
+          memory: 512M
     healthcheck:
       test: ["CMD-SHELL", "node -e \"require('http').get('http://localhost:3000/api/health', (r) => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))\""]
       interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 60s
+      timeout: 15s
+      retries: 5
+      start_period: 90s
     stop_grace_period: 30s
 
   db:
@@ -56,11 +56,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.5'
-          memory: 512M
+          cpus: '1.0'
+          memory: 768M
         reservations:
-          cpus: '0.1'
-          memory: 128M
+          cpus: '0.25'
+          memory: 256M
     networks:
       - etimen-network
 
